@@ -2,8 +2,11 @@ import {initializeApp} from "firebase/app"
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { createContext,useContext } from "react";
 import { useState } from "react";
-export const FirebaseContext = createContext(null);
-export const useFirebase = () =>useContext(FirebaseContext)
+export const FirebaseContext = createContext({
+  Islogg:false,
+});
+export function useFirebase = () {
+  return useContext(FirebaseContext)}
 const firebaseConfig = {
   apiKey: "AIzaSyCc2NOkfK7ap0gdf2yea6DXgw7nneHNeF0",
   authDomain: "my-instagram-database.firebaseapp.com",
@@ -20,7 +23,7 @@ export const FirebaseProvider  = (props) => {
   const signUpUserWithEmailAndpassword = (email , password) => {
       createUserWithEmailAndPassword(firebaseAuth, email, password)
   }
-  const isloggedIn = () => {}
+  
   const [user, setUser] = useState(null)
   return<FirebaseContext.Provider value={{signUpUserWithEmailAndpassword, user,setUser, isloggedIn}}>{props.children}</FirebaseContext.Provider>
   
