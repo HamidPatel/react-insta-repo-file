@@ -7,13 +7,14 @@ import { FirebaseContext, useFirebase } from '../Context/Firebase';
 import { useNavigate } from 'react-router-dom';
 export default function ProfilePage() {
 
-    const firebase = useFirebase();
+    const {islogg} = useFirebase();
         const showBtn = () => {
             let con = document.querySelector("#con")
             con.classList.toggle("hidden")
         }
         const navigate = useNavigate()
         const LogOut = () =>{
+            islogg === false
             navigate("/")
         }
    
