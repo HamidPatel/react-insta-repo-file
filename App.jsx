@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import HomePage from './Pages/HomePage'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 import Layout from './Layout'
@@ -9,7 +9,7 @@ import Login from './Components/login/LogIn'
 import { FirebaseProvider } from './Context/Firebase'
 const App = () => {
  
-
+const [islogg, setIslogg] = useState(false)
   const router = createBrowserRouter (
    
 
@@ -28,7 +28,7 @@ const App = () => {
   )
   return (
 
-   <FirebaseProvider >
+   <FirebaseProvider value={{islogg}}>
     <RouterProvider router={router} />
 
    </FirebaseProvider>
