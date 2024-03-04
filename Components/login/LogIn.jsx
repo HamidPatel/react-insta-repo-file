@@ -6,6 +6,7 @@ import { app } from '../../Context/Firebase';
 
 const auth = getAuth(app)
 function Login() {
+    const {islogg} = useFirebase();
     const navigate =  useNavigate()
 
     const [email, setEmail] = useState('')
@@ -16,6 +17,7 @@ function Login() {
         signInWithEmailAndPassword(auth, email, password).then((value) => alert("success")).catch((error) => alert("something is wrong", error));
         setEmail("")
         setPassword("")
+        islogg === True
 
     }
     const [user, setUser] = useState(null)
